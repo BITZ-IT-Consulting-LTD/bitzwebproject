@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --navy: 240 100% 6.6%;
+
+    /* Custom colors */
+    --navy-900: 240 100% 6.6%;
+    --navy-950: 240 100% 6.6%;
+
+    /* Chart colors */
+    --chart-1: 240 100% 10.6%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 262 83% 58%;
+    --chart-5: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground font-grotesk;
+    background-color: #ffffff;
+    background-image:
+      linear-gradient(45deg, #000435 1px, transparent 1px),
+      linear-gradient(-45deg, #000435 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+.bg-navy {
+  background-color: hsl(var(--navy));
+}
+
+.bg-navy-900 {
+  background-color: hsl(240 100% 6.6% / 0.9);
+}
+
+.bg-navy-950 {
+  background-color: hsl(240 100% 6.6% / 0.95);
+}
+
+.shadow-ios {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-ios-lg {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.bg-mesh {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #000435 1px, transparent 1px),
+    linear-gradient(-45deg, #000435 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-mesh-gray {
+  background-color: #f9fafb;
+  background-image:
+    linear-gradient(45deg, #000435 1px, transparent 1px),
+    linear-gradient(-45deg, #000435 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-mesh-card {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #000435 1px, transparent 1px),
+    linear-gradient(-45deg, #000435 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-mesh-navy {
+  background-color: #000435;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
