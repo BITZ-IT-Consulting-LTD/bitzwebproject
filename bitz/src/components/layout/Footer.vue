@@ -1,131 +1,70 @@
 <template>
-  <footer class="bg-navy-950 text-white">
-    <div class="container-custom section-padding">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <footer class="bg-primary text-white py-24 border-t border-navy-800">
+    <div class="container-custom mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
         <!-- Company Info -->
         <div class="lg:col-span-1">
-          <div class="flex items-center space-x-2 mb-4">
-            <img src="/src/assets/Bitz.png" alt="BITZ Logo" class="h-32 w-auto" />
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-8 h-8 bg-white flex items-center justify-center rounded-sm">
+              <span class="text-primary font-bold text-lg">B</span>
+            </div>
+            <span class="text-xl font-bold tracking-tight">BITZ</span>
           </div>
-          <p class="text-gray-300 mb-4 leading-relaxed">
-            {{ siteConfig.tagline }}
+          <p class="text-slate-400 text-sm leading-relaxed mb-8">
+            Designing, building, and operating digital infrastructure for public institutions and enterprises across Africa.
           </p>
-          <div class="flex space-x-4">
-            <a
-              v-for="(link, platform) in siteConfig.social"
-              :key="platform"
-              :href="link"
-              class="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              <component :is="getSocialIcon(platform)" :size="20" />
-            </a>
+          <div class="flex gap-4">
+            <a href="#" class="text-slate-400 hover:text-white transition-colors"><Linkedin :size="20" /></a>
+            <a href="#" class="text-slate-400 hover:text-white transition-colors"><Twitter :size="20" /></a>
           </div>
         </div>
 
         <!-- Services -->
         <div>
-          <h3 class="text-lg font-semibold mb-4">Services</h3>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
-                Infrastructure Management
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
-                Software Development
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
-                Cybersecurity
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
-                Cloud Solutions
-              </a>
-            </li>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-6 text-slate-500">Services</h4>
+          <ul class="space-y-4 text-sm font-medium">
+            <li><router-link to="/products" class="text-slate-300 hover:text-white transition-colors">Digital System Design</router-link></li>
+            <li><router-link to="/products" class="text-slate-300 hover:text-white transition-colors">Scalable Infrastructure</router-link></li>
+            <li><router-link to="/products" class="text-slate-300 hover:text-white transition-colors">National Platform Operations</router-link></li>
+            <li><router-link to="/products" class="text-slate-300 hover:text-white transition-colors">Digital Assessment</router-link></li>
           </ul>
         </div>
 
         <!-- Company -->
         <div>
-          <h3 class="text-lg font-semibold mb-4">Company</h3>
-          <ul class="space-y-2">
-            <li>
-              <router-link 
-                to="/our-vision" 
-                class="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                Our Vision
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/our-team" 
-                class="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                Our Team
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/products" 
-                class="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                Products
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/projects" 
-                class="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                Projects
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/contact" 
-                class="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                Contact
-              </router-link>
-            </li>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-6 text-slate-500">Company</h4>
+          <ul class="space-y-4 text-sm font-medium">
+            <li><router-link to="/about" class="text-slate-300 hover:text-white transition-colors">About Us</router-link></li>
+            <li><router-link to="/projects" class="text-slate-300 hover:text-white transition-colors">Case Studies</router-link></li>
+            <li><router-link to="/our-team" class="text-slate-300 hover:text-white transition-colors">Leadership</router-link></li>
+            <li><router-link to="/contact" class="text-slate-300 hover:text-white transition-colors">Contact</router-link></li>
           </ul>
         </div>
 
-        <!-- Connect -->
+        <!-- Contact -->
         <div>
-          <h3 class="text-lg font-semibold mb-4">Connect</h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <Globe :size="16" class="text-gray-400" />
-              <span class="text-gray-300 text-sm">Prime Cartons, Dongkung building next to Nice&Lovely along Mombasa Road</span>
+          <h4 class="text-xs font-bold uppercase tracking-widest mb-6 text-slate-500">Contact</h4>
+          <div class="space-y-6 text-sm">
+            <div class="flex items-start gap-3">
+              <MapPin :size="18" class="text-secondary shrink-0" />
+              <span class="text-slate-300">Prime Cartons, Dongkung building along Mombasa Road, Nairobi, Kenya</span>
             </div>
-            <div class="flex items-center space-x-3">
-              <Mail :size="16" class="text-gray-400" />
-              <a 
-                :href="'mailto:info@bitz-itc.com'"
-                class="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
-              >
-                info@bitz-itc.com
-              </a>
+            <div class="flex items-center gap-3">
+              <Mail :size="18" class="text-secondary shrink-0" />
+              <a href="mailto:info@bitz-itc.com" class="text-slate-300 hover:text-white transition-colors">info@bitz-itc.com</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Bottom Bar -->
-      <div class="border-t border-gray-800 mt-12 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-400 text-sm">
-            © {{ currentYear }} BITZ-itc. All rights reserved.
-          </p>
-          <div class="flex items-center space-x-2 mt-4 md:mt-0">
-            <MessageSquare :size="16" class="text-gray-400" />
-          </div>
+      <div class="mt-24 pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-xs">
+          © {{ new Date().getFullYear() }} BITZ IT Consulting. All rights reserved.
+        </p>
+        <div class="flex gap-8 text-xs font-bold text-slate-500 uppercase tracking-widest">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
         </div>
       </div>
     </div>
@@ -133,22 +72,11 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { Globe, Mail, Phone, MessageSquare, Linkedin, Twitter, Facebook, Instagram } from 'lucide-vue-next'
-import { useSiteStore } from '@/stores/siteStore'
-
-const siteStore = useSiteStore()
-const siteConfig = siteStore.siteConfig
-
-const currentYear = computed(() => new Date().getFullYear())
-
-const getSocialIcon = (platform) => {
-  const icons = {
-    linkedin: Linkedin,
-    twitter: Twitter,
-    facebook: Facebook,
-    instagram: Instagram
-  }
-  return icons[platform] || Globe
-}
+import { Linkedin, Twitter, MapPin, Mail } from 'lucide-vue-next'
 </script>
+
+<style scoped>
+.container-custom {
+  max-width: 1200px;
+}
+</style>

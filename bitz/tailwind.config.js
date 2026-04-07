@@ -7,22 +7,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'roboto': ['Roboto', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       colors: {
         primary: {
-          50: '#1F1E5C',
-          100: '#1F1E5C',
-          200: '#1F1E5C',
-          300: '#1F1E5C',
-          400: '#1F1E5C',
-          500: '#1F1E5C',
-          600: '#1F1E5C',
-          700: '#1F1E5C',
-          800: '#1F1E5C',
-          900: '#1F1E5C',
-          950: '#1F1E5C',
+          DEFAULT: '#0F172A',
+          hover: '#1E293B',
         },
+        secondary: {
+          DEFAULT: '#3B82F6',
+        },
+        background: '#F8FAFC',
+        surface: '#FFFFFF',
+        'text-primary': '#1E293B',
+        'text-secondary': '#64748B',
         navy: {
           50: '#f8fafc',
           100: '#f1f5f9',
