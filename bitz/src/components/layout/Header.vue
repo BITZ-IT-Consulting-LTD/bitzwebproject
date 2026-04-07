@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="[
       isScrolled 
-        ? 'bg-white border-b border-slate-200' 
+        ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm' 
         : 'bg-transparent'
     ]"
   >
@@ -25,18 +25,18 @@
         </router-link>
 
         <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center space-x-8">
+        <div class="hidden lg:flex items-center space-x-1">
           <router-link
             v-for="item in navigationItems"
             :key="item.name"
             :to="item.path"
-            class="text-sm font-bold uppercase tracking-widest transition-all duration-300"
+            class="px-4 py-2 text-sm font-semibold uppercase tracking-wider transition-all duration-300 rounded-sm"
             :class="[
-              $route.path === item.path
-                ? 'text-secondary'
+              $route.path === item.path || (item.activePaths && item.activePaths.includes($route.path))
+                ? 'text-secondary bg-secondary/5'
                 : isScrolled
-                  ? 'text-primary hover:text-secondary'
-                  : 'text-white/80 hover:text-white'
+                  ? 'text-primary hover:text-secondary hover:bg-slate-50'
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
             ]"
           >
             {{ item.name }}
@@ -45,11 +45,11 @@
           <!-- Contact Button -->
           <router-link
             to="/contact"
-            class="px-6 py-2 border font-bold text-[10px] uppercase tracking-[0.2em] transition-all duration-300"
+            class="ml-4 px-6 py-2.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-sm"
             :class="[
               isScrolled 
-                ? 'bg-primary border-primary text-white hover:bg-navy-800' 
-                : 'bg-white border-white text-primary hover:bg-slate-100'
+                ? 'bg-primary text-white hover:bg-navy-800' 
+                : 'bg-white text-primary hover:bg-slate-100'
             ]"
           >
             Contact
@@ -61,7 +61,7 @@
           @click="toggleMobileMenu"
           class="lg:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-all duration-300"
           :class="[
-            isScrolled 
+            isScrolled || isMobileMenuOpen
               ? 'text-primary' 
               : 'text-white'
           ]"
@@ -79,21 +79,22 @@
         leave-active-class="transition-all duration-200 ease-in"
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4">
-        <div v-if="isMobileMenuOpen" class="lg:hidden py-8 border-t border-slate-100 bg-white">
-          <div class="flex flex-col space-y-4">
+        <div v-if="isMobileMenuOpen" class="lg:hidden py-6 border-t border-slate-100 bg-white">
+          <div class="flex flex-col space-y-1">
             <router-link
               v-for="item in navigationItems"
               :key="item.name"
               :to="item.path"
-              class="px-4 py-2 font-bold text-sm uppercase tracking-widest text-primary hover:text-secondary transition-colors"
+              class="px-4 py-3 font-semibold text-sm uppercase tracking-wider text-primary hover:text-secondary hover:bg-slate-50 rounded-sm transition-colors"
+              :class="{ 'text-secondary bg-secondary/5': $route.path === item.path || (item.activePaths && item.activePaths.includes($route.path)) }"
               @click="closeMobileMenu"
             >
               {{ item.name }}
             </router-link>
-            <div class="px-4 pt-4 border-t border-slate-100">
+            <div class="px-4 pt-4 mt-4 border-t border-slate-100">
               <router-link
                 to="/contact"
-                class="flex items-center justify-center px-6 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest"
+                class="flex items-center justify-center px-6 py-4 bg-primary text-white font-bold text-sm uppercase tracking-wider rounded-sm"
                 @click="closeMobileMenu"
               >
                 Contact
@@ -116,10 +117,11 @@ const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 
 const navigationItems = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/products' },
-  { name: 'Case Studies', path: '/projects' }
+  { name: 'Home', path: '/', activePaths: ['/'] },
+  { name: 'About', path: '/about', activePaths: ['/about'] },
+  { name: 'Services', path: '/services', activePaths: ['/services', '/products'] },
+  { name: 'Sectors', path: '/sectors', activePaths: ['/sectors'] },
+  { name: 'Case Studies', path: '/projects', activePaths: ['/projects'] }
 ]
 
 const toggleMobileMenu = () => {

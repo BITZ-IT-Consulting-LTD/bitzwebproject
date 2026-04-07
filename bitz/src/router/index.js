@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Home from "@/pages/Home.vue"
 import About from "@/pages/About.vue"
-import OurVision from "@/pages/OurVision.vue"
-import Team from "@/pages/Team.vue"
-import Projects from "@/pages/Projects.vue"
+import Services from "@/pages/Services.vue"
+import Sectors from "@/pages/Sectors.vue"
 import Products from "@/pages/Products.vue"
+import Projects from "@/pages/Projects.vue"
 import Contact from "@/pages/Contact.vue"
 
 const routes = [
@@ -13,9 +13,9 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      title: "BITZ - Transforming Businesses Through Technology",
+      title: "BITZ - Technology Systems for Public Institutions",
       description:
-        "Leading technology partner providing innovative solutions for digital transformation across East Africa.",
+        "We design, build, and operate digital infrastructure for governments, health systems, and financial institutions across Africa.",
     },
   },
   {
@@ -25,36 +25,27 @@ const routes = [
     meta: {
       title: "About Us - BITZ",
       description:
-        "Learn about BITZ IT Consulting, our mission, values, and commitment to delivering innovative technology solutions.",
+        "BITZ is a technology consulting firm. We design, build, and operate digital systems for public institutions and enterprises in Africa.",
     },
   },
   {
-    path: "/our-vision",
-    name: "OurVision",
-    component: OurVision,
+    path: "/services",
+    name: "Services",
+    component: Services,
     meta: {
-      title: "Our Vision - BITZ",
+      title: "Our Services - BITZ",
       description:
-        "Discover our vision for empowering businesses through innovative technology solutions and digital transformation.",
+        "AI and Automation, Data Infrastructure, Cloud and Operations, Digital Assessment. Technology services for operational outcomes.",
     },
   },
   {
-    path: "/our-team",
-    name: "Team",
-    component: Team,
+    path: "/sectors",
+    name: "Sectors",
+    component: Sectors,
     meta: {
-      title: "Our Team - BITZ",
-      description: "Meet the experts behind our innovative technology solutions and learn about our leadership team.",
-    },
-  },
-  {
-    path: "/projects",
-    name: "Projects",
-    component: Projects,
-    meta: {
-      title: "Projects - BITZ",
+      title: "Solutions by Sector - BITZ",
       description:
-        "Explore our portfolio of successful projects and discover the impact of our work across various industries.",
+        "Sector-specific solutions for Government, Healthcare, Financial Services, and International Development.",
     },
   },
   {
@@ -62,9 +53,19 @@ const routes = [
     name: "Products",
     component: Products,
     meta: {
-      title: "Our Products - BITZ",
+      title: "Our Services - BITZ",
       description:
-        "Discover our comprehensive suite of software products designed to transform businesses across East Africa.",
+        "Comprehensive technology services including consulting, software development, and AI solutions.",
+    },
+  },
+  {
+    path: "/projects",
+    name: "Projects",
+    component: Projects,
+    meta: {
+      title: "Case Studies - BITZ",
+      description:
+        "Documented capability through factual evidence. Child Helpline Systems, OPENHMIS, Tower SACCO.",
     },
   },
   {
@@ -73,8 +74,17 @@ const routes = [
     component: Contact,
     meta: {
       title: "Contact Us - BITZ",
-      description: "Get in touch with BITZ IT Consulting. Let's discuss how we can help transform your business.",
+      description: "Discuss a project or engagement. We respond within 48 hours.",
     },
+  },
+  // Redirect old routes
+  {
+    path: "/our-vision",
+    redirect: "/about"
+  },
+  {
+    path: "/our-team",
+    redirect: "/about"
   },
   // 404 page
   {
